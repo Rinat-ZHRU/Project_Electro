@@ -5,6 +5,7 @@ class Main_Category(models.Model):
     """Категории"""
     main_category_name = models.CharField('Главная категория', max_length=250)
     main_category_description = models.TextField('Описание', null=True, blank=True)  # описание категории
+    image = models.ImageField('Фото', null=True, blank=True)  # изображение
 
     class Meta:
         ordering = ['main_category_name']
@@ -22,6 +23,7 @@ class Category(models.Model):
     """Подкатегории"""
     category_name = models.CharField('Подкатегория', max_length=250)  # наименование категории
     category_description = models.TextField('Описание', null=True, blank=True)  # описание категории
+    image = models.ImageField('Фото', null=True, blank=True)  # изображение
     main_category = models.ForeignKey(Main_Category, on_delete=models.CASCADE)  # подкатегории к категориям
 
     class Meta:
@@ -40,6 +42,8 @@ class Brand(models.Model):
     """Бренды товаров"""
     brand_name = models.CharField('Название бренда', max_length=50, null=True)
     brand_description = models.TextField('Описание бренда', null=True, blank=True)
+    image = models.ImageField('Фото', null=True, blank=True)  # изображение
+
 
     class Meta:
         ordering = ['brand_name']
