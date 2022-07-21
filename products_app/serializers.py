@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from products_app.models import Product, Branch, Brand, Category
+from products_app.models import Product, Branch, Brand, Category, Main_Category
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -20,4 +20,9 @@ class BrandSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
+        fields = '__all__'  # все поля
+
+class MainCategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Main_Category
         fields = '__all__'  # все поля

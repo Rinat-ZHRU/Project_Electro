@@ -1,8 +1,9 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from rest_framework.filters import SearchFilter, OrderingFilter
-from products_app.models import Product, Brand, Branch, Category
-from products_app.serializers import ProductSerializer, CategorySerializer, BranchSerializer, BrandSerializer
+from products_app.models import Product, Brand, Branch, Category, Main_Category
+from products_app.serializers import ProductSerializer, \
+    CategorySerializer, BranchSerializer, BrandSerializer, MainCategorySerializer
 
 
 class ProductViewSet(viewsets.ModelViewSet):
@@ -25,3 +26,7 @@ class BranchViewSet(viewsets.ModelViewSet):
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all().order_by('id')
     serializer_class = CategorySerializer
+
+class MainCategoryViewSet(viewsets.ModelViewSet):
+    queryset = Main_Category.objects.all().order_by('id')
+    serializer_class = MainCategorySerializer
