@@ -20,14 +20,14 @@ class Main_Category(models.Model):
 
 class Category(models.Model):
     """Подкатегории"""
-    category_name = models.CharField('Категория', max_length=250)  # наименование категории
+    category_name = models.CharField('Подкатегория', max_length=250)  # наименование категории
     category_description = models.TextField('Описание', null=True, blank=True)  # описание категории
     main_category = models.ForeignKey(Main_Category, on_delete=models.CASCADE)  # подкатегории к категориям
 
     class Meta:
         ordering = ['category_name']
-        verbose_name = 'Категория'
-        verbose_name_plural = 'Категории'
+        verbose_name = 'Подкатегория'
+        verbose_name_plural = 'Подкатегории'
 
     def clean(self):
         self.category_name = self.category_name.capitalize()  # исправление букв на первую заглавную
